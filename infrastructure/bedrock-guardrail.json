@@ -1,0 +1,23 @@
+{
+  "name": "safeword-guardrail",
+  "description": "Safety baseline for high-stakes scam screening and claim verification.",
+  "blockedInputMessaging": "I cannot process that request safely. Please contact a trusted person.",
+  "blockedOutputsMessaging": "Please verify this with a trusted person or qualified professional before acting.",
+  "contentPolicy": {
+    "filters": [
+      { "type": "HATE", "inputStrength": "HIGH", "outputStrength": "HIGH" },
+      { "type": "VIOLENCE", "inputStrength": "HIGH", "outputStrength": "HIGH" },
+      { "type": "SEXUAL", "inputStrength": "HIGH", "outputStrength": "HIGH" },
+      { "type": "INSULTS", "inputStrength": "HIGH", "outputStrength": "HIGH" },
+      { "type": "MISCONDUCT", "inputStrength": "HIGH", "outputStrength": "HIGH" },
+      { "type": "PROMPT_ATTACK", "inputStrength": "HIGH", "outputStrength": "HIGH" }
+    ]
+  },
+  "sensitiveInformationPolicy": {
+    "piiEntities": [
+      { "type": "PHONE", "action": "ANONYMIZE" },
+      { "type": "CREDIT_DEBIT_CARD_NUMBER", "action": "ANONYMIZE" }
+    ]
+  },
+  "note": "Review and adapt filter names to the Bedrock Guardrails API version and region used for deployment."
+}

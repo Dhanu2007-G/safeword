@@ -1,0 +1,24 @@
+{
+  "name": "safeword",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Safeword MCP trust layer for high-stakes voice interactions",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w @safeword/mcp-server\" \"npm run dev -w @safeword/web-app\"",
+    "build": "npm run build -w @safeword/mcp-server && npm run build -w @safeword/web-app",
+    "typecheck": "npm run typecheck -w @safeword/mcp-server && npm run typecheck -w @safeword/web-app",
+    "start": "npm run start -w @safeword/mcp-server",
+    "dev:web": "npm run dev -w @safeword/web-app",
+    "build:web": "npm run build -w @safeword/web-app",
+    "typecheck:web": "npm run typecheck -w @safeword/web-app",
+    "evaluate": "tsx data/evaluate.ts"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "tsx": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
